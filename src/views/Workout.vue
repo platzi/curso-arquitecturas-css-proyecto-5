@@ -1,10 +1,14 @@
 <template>
-  
+  <Modal />
 </template>
 
 <script>
-export default {
+import Modal from '@/components/modal/Modal'
 
+export default {
+  components: {
+    Modal
+  },
 }
 </script>
 

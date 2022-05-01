@@ -21,6 +21,11 @@ const routes = [
     path: '/workout',
     name: 'workout',
     component: () => import(/* webpackChunkName: "workout" */ '../views/Workout.vue')
+  },
+  {
+    path: '/favorites',
+    name: 'favorites',
+    component: () => import(/* webpackChunkName: "favorites" */ '../views/Favorites.vue')
   }
 ]
 
