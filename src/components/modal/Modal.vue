@@ -39,28 +39,9 @@
       </div>
       <div v-else-if="fourthSlide" class="fourthSlide">
         <Level
-          v-if="levelOnModal === 1"
           level="Level 1"
           title="Basix Level"
           description="I TRAIN A FEW TIMES PER MONTH"
-        />
-        <Level
-          v-if="levelOnModal === 2"
-          level="Level 2"
-          title="Next Level"
-          description="I TRAIN 2-3 DAYS A WEEK"
-        />
-        <Level
-          v-if="levelOnModal === 3"
-          level="Level 3"
-          title="Max Level"
-          description="I TRAIN 4-5 DAYS A WEEK"
-        />
-        <Level
-          v-if="levelOnModal === 4"
-          level="Level 4"
-          title="X-Treme Level"
-          description="I AM ATHLEAN"
         />
       </div>
       <div>
@@ -99,36 +80,6 @@ export default {
     const thirdSlide = ref(false);
     const fourthSlide = ref(false);
 
-    let levelOnModal = ref(1);
-
-    const firstLevel = (level) => {
-      levelOnModal.value = level;
-      console.log('level on MODAL:', levelOnModal.value);
-      console.log('firstLevel');
-      return levelOnModal;
-    }
-
-    const secondLevel = (level) => {
-      levelOnModal.value = level;
-      console.log('level on MODAL:', levelOnModal.value);
-      console.log('secondLevel');
-      return levelOnModal;
-    }
-
-    const thirdLevel = (level) => {
-      levelOnModal.value = level;
-      console.log('level on MODAL:', levelOnModal.value);
-      console.log('thirdLevel');
-      return levelOnModal;
-    }
-
-    const fourthLevel = (level) => {
-      levelOnModal.value = level;
-      console.log('level on MODAL:', levelOnModal.value);
-      console.log('fourthLevel');
-      return levelOnModal;
-    }
-
     const nextSlide = () => {
       if (firstSlide.value) {
         firstSlide.value = false;
@@ -165,11 +116,6 @@ export default {
       favorites,
       specificArea,
       options,
-      firstLevel,
-      secondLevel,
-      thirdLevel,
-      fourthLevel,
-      levelOnModal
     };
   }
 }

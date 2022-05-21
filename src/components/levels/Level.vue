@@ -20,40 +20,49 @@ export default {
   props: {
     level: {
       type: String,
-      required: true
+      required: true,
+      default: 'Level 1'
     },
     title: {
       type: String,
-      required: true
+      required: true,
+      default: 'Basix Level'
     },
     description: {
       type: String,
-      required: true
+      required: true,
+      default: 'I TRAIN A FEW TIMES PER MONTH',
     },
   },
 
-  emits: ['firstLevel', 'secondLevel', 'thirdLevel', 'fourthLevel'],
-
-  setup(props, context) {
+  setup(props) {
     const myLevel = ref(1);
+    const level = ref(props.level);
+    const title = ref(props.title);
+    const description = ref(props.description);
 
     const nextLevel = () => {
       if (myLevel.value < 4) {
         switch (myLevel.value) {
           case 1:
-            context.emit('secondLevel', myLevel.value);
             myLevel.value = 2;
+            level.value = 'Level 2';
+            title.value = "Next Level"
+            description.value = "I TRAIN 2-3 DAYS A WEEK"
           break;
           case 2:
-            context.emit('thirdLevel', myLevel.value);
             myLevel.value = 3;
+            level.value = 'Level 3';
+            title.value = "Max Level"
+            description.value = "I TRAIN 4-5 DAYS A WEEK"
           break;
           case 3:
-            context.emit('fourthLevel', myLevel.value);
             myLevel.value = 4;
+            level.value = 'Level 4';
+            title.value = "X-Treme Level"
+            description.value = "I AM ATHLEAN"
           break;
         }
-        console.log('myLevel: ', myLevel.value);
       }
     };
 
@@ -61,25 +70,33 @@ export default {
       if (myLevel.value > 1) {
         switch (myLevel.value) {
           case 2:
-            context.emit('firstLevel', myLevel.value);
             myLevel.value = 1;
+            level.value = 'Level 1';
+            title.value = 'Basix Level'
+            description.value = 'I TRAIN A FEW TIMES PER MONTH'
           break;
           case 3:
-            context.emit('secondLevel', myLevel.value);
             myLevel.value = 2;
+            level.value = 'Level 2';
+            title.value = "Next Level"
+            description.value = "I TRAIN 2-3 DAYS A WEEK"
           break;
           case 4:
-            context.emit('thirdLevel', myLevel.value);
             myLevel.value = 3;
+            level.value = 'Level 3';
+            title.value = "Max Level"
+            description.value = "I TRAIN 4-5 DAYS A WEEK"
           break;
         }
-        console.log('myLevel: ', myLevel.value);
       }
     };
 
     return {
       dumbellImage,
       myLevel,
+      level,
+      title,
+      description,
       nextLevel,
       previousLevel,
     }
