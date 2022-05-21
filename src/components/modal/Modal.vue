@@ -15,6 +15,7 @@
         <TrainingButton
           text="My entire core"
           @nextStep="nextSlide"
+          @click="allSelected"
         />
         <TrainingButton
           text="Saved workouts"
@@ -29,13 +30,22 @@
           :image="option.image"
           :alt="option.alt"
           :text="option.text"
+          @select="emitIndexOption(index)"
         />
         <NextShuffle text="Next" @click="lastSlide" />
       </div>
       <div v-else-if="thirdSlide" class="thirdSlide">
-        <button>upper</button>
-        <button>lower</button>
-        <button>obliques</button>
+        <button @click="setUpper">
+          upper
+        </button>
+
+        <button @click="setLower">
+          lower
+        </button>
+
+        <button @click="setObliques">
+          obliques
+        </button>
       </div>
       <div v-else-if="fourthSlide" class="fourthSlide">
         <Level
@@ -43,6 +53,7 @@
           title="Basix Level"
           description="I TRAIN A FEW TIMES PER MONTH"
         />
+        <NextShuffle text="Shuffle" @click="shuffleAbWorkout" />
       </div>
       <div>
         <div class="circle1"></div>
@@ -63,6 +74,7 @@ import NextShuffle from '@/components/buttons/NextShuffle'
 import Level from '@/components/levels/Level'
 
 import { options } from '@/utils/options';
+import store from '@/store';
 
 export default {
   components: {
@@ -70,6 +82,7 @@ export default {
     Option,
     NextShuffle,
     Level,
+    NextShuffle
 },
 
   setup() {
@@ -106,6 +119,65 @@ export default {
       router.push('/favorites');
     }
 
+    const shuffleAbWorkout = () => {
+      console.log('shuffle');
+    }
+
+    const setUpper = () => {
+      store.commit('setUpperSelected', true);
+      store.commit('setLowerSelected', false);
+      store.commit('setObliquesSelected', false);
+      nextSlide();
+    }
+
+    const setLower = () => {
+      store.commit('setLowerSelected', true);
+      store.commit('setUpperSelected', false);
+      store.commit('setObliquesSelected', false);
+      nextSlide();
+    }
+
+    const setObliques = () => {
+      store.commit('setObliquesSelected', true);
+      store.commit('setLowerSelected', false);
+      store.commit('setUpperSelected', false);
+      nextSlide();
+    }
+
+    const emitIndexOption = (index) => {
+      switch (index) {
+        case 1:
+          store.getters.isTennisBallSelected
+            ? store.commit('setTennisBallSelected', false)
+            : store.commit('setTennisBallSelected', true);
+          break;
+        case 2:
+          store.getters.isChinupBarSelected
+            ? store.commit('setChinupBarSelected', false)
+            : store.commit('setChinupBarSelected', true);
+          break;
+        case 3:
+          store.getters.isDumbbellSelected
+            ? store.commit('setDumbbellSelected', false)
+            : store.commit('setDumbbellSelected', true);
+          break;
+        case 4:
+          store.getters.isResistanceBandSelected
+            ? store.commit('setResistanceBandSelected', false)
+            : store.commit('setResistanceBandSelected', true);
+          break;
+        case 5:
+          store.getters.isPhysioballSelected
+            ? store.commit('setPhysioballSelected', false)
+            : store.commit('setPhysioballSelected', true);
+          break;
+      }
+    }
+
+    const allSelected = () => {
+      store.commit('setAllSelected', true);
+    }
+
     return {
       firstSlide,
       secondSlide,
@@ -116,6 +188,12 @@ export default {
       favorites,
       specificArea,
       options,
+      shuffleAbWorkout,
+      setUpper,
+      setLower,
+      setObliques,
+      emitIndexOption,
+      allSelected
     };
   }
 }

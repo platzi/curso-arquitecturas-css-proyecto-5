@@ -27,13 +27,15 @@ export default {
     }
   },
 
-  setup() {
+  emits: ["select"],
+
+  setup(_, context) {
+
     const isSelected = ref(false);
 
     const selectOption = () => {
-      console.log('isSelected: ', isSelected.value);
       isSelected.value = !isSelected.value;
-      console.log('isSelected: ', isSelected.value);
+      context.emit('select')
     }
 
     return {
