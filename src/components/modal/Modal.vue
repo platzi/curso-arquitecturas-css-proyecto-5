@@ -1,5 +1,5 @@
 <template>
-  <main class="main">
+  <main class="main" v-if="exercisesToDo.length < 1">
     <header>
       <h1 v-if="firstSlide">WHAT DO YOU WANT TO TRAIN?</h1>
       <h1 v-else-if="secondSlide">SELECT YOUR EQUIPMENT</h1>
@@ -55,13 +55,13 @@
         />
         <NextShuffle text="Shuffle" @click="shuffleAbWorkout" />
       </div>
-      <div>
-        <div class="circle1"></div>
-        <div class="circle2"></div>
-        <div class="circle3"></div>
-      </div>
     </section>
   </main>
+  <section v-else>
+    <div v-for="exercise, index in (exercisesToDo)" :key="index">
+      <p>{{ exercise.title }}</p>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -88,6 +88,8 @@ export default {
 },
 
   setup() {
+    const exercisesToDo = ref([]);
+
     const router = useRouter();
 
     const firstSlide = ref(true);
@@ -122,7 +124,9 @@ export default {
     }
 
     const shuffleAbWorkout = () => {
-      mixExercises()
+      exercisesToDo.value = mixExercises()
+      console.log(exercisesToDo)
+      console.log(exercisesToDo.length)
     }
 
     const setUpper = () => {
@@ -195,7 +199,8 @@ export default {
       setLower,
       setObliques,
       emitIndexOption,
-      allSelected
+      allSelected,
+      exercisesToDo
     };
   }
 }
