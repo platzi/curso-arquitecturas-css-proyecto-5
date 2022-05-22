@@ -1,4 +1,4 @@
-export const obliquePhysioball = [
+export const obliquesPhysioball = [
   {
     title: 'oblique ab physioball 0',
     video: ''

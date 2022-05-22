@@ -11,6 +11,7 @@
 import { useRouter } from 'vue-router'
 
 import ButtonImage from '@/components/buttons/ButtonImage'
+import store from '@/store'
 
 export default {
   components: {
@@ -22,6 +23,7 @@ export default {
 
     const goToWorkout = () => {
       router.push('/workout');
+      store.commit('clearState')
     };
 
     return {

@@ -1,4 +1,4 @@
-export const obliqueBand = [
+export const obliquesBand = [
   {
     title: 'oblique ab band 0',
     video: ''

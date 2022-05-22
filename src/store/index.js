@@ -11,6 +11,7 @@ export default createStore({
     isDumbbellSelected: false,
     isResistanceBandSelected: false,
     isPhysioballSelected: false,
+    level: 1,
   },
 
   getters: {
@@ -23,6 +24,7 @@ export default createStore({
     isDumbbellSelected: state => state.isDumbbellSelected,
     isResistanceBandSelected: state => state.isResistanceBandSelected,
     isPhysioballSelected: state => state.isPhysioballSelected,
+    level: state => state.level,
   },
 
   mutations: {
@@ -63,6 +65,23 @@ export default createStore({
     setPhysioballSelected(state, value) {
       state.isPhysioballSelected = value
     },
+
+    setLevel(state, value) {
+      state.level = value
+    },
+
+    clearState(state) {
+      state.isUpperSelected = false
+      state.isLowerSelected = false
+      state.isObliquesSelected = false
+      state.isBodyweightSelected = true
+      state.isTennisBallSelected = false
+      state.isChinupBarSelected = false
+      state.isDumbbellSelected = false
+      state.isResistanceBandSelected = false
+      state.isPhysioballSelected = false
+      state.level = 1
+    }
   },
 
   actions: {

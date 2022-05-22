@@ -1,4 +1,4 @@
-export const obliqueDumbbell = [
+export const obliquesDumbbell = [
   {
     title: 'oblique ab dumbbell 0',
     video: ''

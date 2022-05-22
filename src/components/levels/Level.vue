@@ -15,6 +15,7 @@
 import { ref } from 'vue';
 
 import dumbellImage from '@/assets/DUMBBELL.webp'
+import store from '@/store';
 
 export default {
   props: {
@@ -49,18 +50,21 @@ export default {
             level.value = 'Level 2';
             title.value = "Next Level"
             description.value = "I TRAIN 2-3 DAYS A WEEK"
+            store.commit('setLevel', 2);
           break;
           case 2:
             myLevel.value = 3;
             level.value = 'Level 3';
             title.value = "Max Level"
             description.value = "I TRAIN 4-5 DAYS A WEEK"
+            store.commit('setLevel', 3);
           break;
           case 3:
             myLevel.value = 4;
             level.value = 'Level 4';
             title.value = "X-Treme Level"
             description.value = "I AM ATHLEAN"
+            store.commit('setLevel', 4);
           break;
         }
       }
@@ -74,18 +78,21 @@ export default {
             level.value = 'Level 1';
             title.value = 'Basix Level'
             description.value = 'I TRAIN A FEW TIMES PER MONTH'
+            store.commit('setLevel', 1);
           break;
           case 3:
             myLevel.value = 2;
             level.value = 'Level 2';
             title.value = "Next Level"
             description.value = "I TRAIN 2-3 DAYS A WEEK"
+            store.commit('setLevel', 2);
           break;
           case 4:
             myLevel.value = 3;
             level.value = 'Level 3';
             title.value = "Max Level"
             description.value = "I TRAIN 4-5 DAYS A WEEK"
+            store.commit('setLevel', 3);
           break;
         }
       }

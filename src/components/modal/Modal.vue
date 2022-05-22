@@ -76,6 +76,8 @@ import Level from '@/components/levels/Level'
 import { options } from '@/utils/options';
 import store from '@/store';
 
+import { mixExercises } from '@/utils/mixExercises'
+
 export default {
   components: {
     TrainingButton,
@@ -120,7 +122,7 @@ export default {
     }
 
     const shuffleAbWorkout = () => {
-      console.log('shuffle');
+      mixExercises()
     }
 
     const setUpper = () => {

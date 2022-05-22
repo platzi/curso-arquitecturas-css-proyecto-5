@@ -1,4 +1,4 @@
-export const obliqueBodyweight = [
+export const obliquesBodyweight = [
   {
     title: 'oblique ab bodyweight 0',
     video: ''
