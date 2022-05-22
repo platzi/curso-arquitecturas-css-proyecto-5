@@ -61,32 +61,42 @@ export const mixExercises = () => {
 
   if (store.getters.isUpperSelected && store.getters.isLowerSelected && store.getters.isObliquesSelected) {
     selectedExercises()
+
+    const newArray = []
+    exercisesTodo.forEach(array => {
+      array.forEach(element => {
+        newArray.push(element)
+      })
+    })
+
     switch (store.getters.level) {
       case 1:
         console.log('all zones level 1')
-        console.log(mixExercises(exercisesTodo, 1))
+        console.log(mixExercises(newArray, 1))
         break
       case 2:
         console.log('all zones level 2')
-        console.log(mixExercises(exercisesTodo, 2))
+        console.log(mixExercises(newArray, 2))
         break
       case 3:
         console.log('all zones level 3')
-        console.log(mixExercises(exercisesTodo, 3))
+        console.log(mixExercises(newArray, 3))
         break
       case 4:
         console.log('all zones level 4')
-        console.log(mixExercises(exercisesTodo, 4))
+        console.log(mixExercises(newArray, 4))
         break
     }
   } else if(store.getters.isUpperSelected) {
     selectedExercises()
+
     const upperArray = []
     exercisesTodo.forEach(element => {
       element.filter(exercise => {
         exercise.title.includes('upper') ? upperArray.push(exercise) : null
       })
     })
+
     switch (store.getters.level) {
       case 1:
         console.log('upper level 1')
@@ -107,12 +117,14 @@ export const mixExercises = () => {
     }
   } else if(store.getters.isLowerSelected) {
     selectedExercises()
+
     const lowerArray = []
     exercisesTodo.forEach(element => {
       element.filter(exercise => {
         exercise.title.includes('lower') ? lowerArray.push(exercise) : null
       })
     })
+
     switch (store.getters.level) {
       case 1:
         console.log('lower level 1')
@@ -133,12 +145,14 @@ export const mixExercises = () => {
     }
   } else if(store.getters.isObliquesSelected) {
     selectedExercises()
+
     const obliqueArray = []
     exercisesTodo.forEach(element => {
       element.filter(exercise => {
         exercise.title.includes('oblique') ? obliqueArray.push(exercise) : null
       })
     })
+
     switch (store.getters.level) {
       case 1:
         console.log('obliques level 1')
