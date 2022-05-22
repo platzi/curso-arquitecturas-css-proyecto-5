@@ -53,38 +53,33 @@ export const mixExercises = () => {
     });
   }
 
+  const mixExercises = (array, n) => {
+    array.sort(() => 0.5 - Math.random());
+    const slicedArray = array.slice(0, n);
+    return slicedArray;
+  }
+
   if (store.getters.isUpperSelected && store.getters.isLowerSelected && store.getters.isObliquesSelected) {
+    selectedExercises()
     switch (store.getters.level) {
       case 1:
         console.log('all zones level 1')
-        break;
+        console.log(mixExercises(exercisesTodo, 1))
+        break
       case 2:
         console.log('all zones level 2')
-        break;
+        console.log(mixExercises(exercisesTodo, 2))
+        break
       case 3:
         console.log('all zones level 3')
-        break;
+        console.log(mixExercises(exercisesTodo, 3))
+        break
       case 4:
         console.log('all zones level 4')
+        console.log(mixExercises(exercisesTodo, 4))
         break
     }
-    selectedExercises()
-    console.log('all zones:', exercisesTodo)
   } else if(store.getters.isUpperSelected) {
-    switch (store.getters.level) {
-      case 1:
-        console.log('upper level 1')
-        break;
-      case 2:
-        console.log('upper level 2')
-        break;
-      case 3:
-        console.log('upper level 3')
-        break;
-      case 4:
-        console.log('upper level 4')
-        break;
-    }
     selectedExercises()
     const upperArray = []
     exercisesTodo.forEach(element => {
@@ -92,22 +87,25 @@ export const mixExercises = () => {
         exercise.title.includes('upper') ? upperArray.push(exercise) : null
       })
     })
-    console.log('upperArray:', upperArray)
-  } else if(store.getters.isLowerSelected) {
     switch (store.getters.level) {
       case 1:
-        console.log('lower level 1')
-        break;
+        console.log('upper level 1')
+        console.log(mixExercises(upperArray, 1))
+        break
       case 2:
-        console.log('lower level 2')
-        break;
+        console.log('upper level 2')
+        console.log(mixExercises(upperArray, 2))
+        break
       case 3:
-        console.log('lower level 3')
-        break;
+        console.log('upper level 3')
+        console.log(mixExercises(upperArray, 3))
+        break
       case 4:
-        console.log('lower level 4')
-        break;
+        console.log('upper level 4')
+        console.log(mixExercises(upperArray, 4))
+        break
     }
+  } else if(store.getters.isLowerSelected) {
     selectedExercises()
     const lowerArray = []
     exercisesTodo.forEach(element => {
@@ -115,22 +113,25 @@ export const mixExercises = () => {
         exercise.title.includes('lower') ? lowerArray.push(exercise) : null
       })
     })
-    console.log('lowerArray:', lowerArray)
-  } else if(store.getters.isObliquesSelected) {
     switch (store.getters.level) {
       case 1:
-        console.log('obliques level 1')
+        console.log('lower level 1')
+        console.log(mixExercises(lowerArray, 1))
         break;
       case 2:
-        console.log('obliques level 2')
+        console.log('lower level 2')
+        console.log(mixExercises(lowerArray, 2))
         break;
       case 3:
-        console.log('obliques level 3')
+        console.log('lower level 3')
+        console.log(mixExercises(lowerArray, 3))
         break;
       case 4:
-        console.log('obliques level 4')
+        console.log('lower level 4')
+        console.log(mixExercises(lowerArray, 4))
         break;
     }
+  } else if(store.getters.isObliquesSelected) {
     selectedExercises()
     const obliqueArray = []
     exercisesTodo.forEach(element => {
@@ -138,6 +139,23 @@ export const mixExercises = () => {
         exercise.title.includes('oblique') ? obliqueArray.push(exercise) : null
       })
     })
-    console.log('obliqueArray:', obliqueArray)
+    switch (store.getters.level) {
+      case 1:
+        console.log('obliques level 1')
+        console.log(mixExercises(obliqueArray, 1))
+        break;
+      case 2:
+        console.log('obliques level 2')
+        console.log(mixExercises(obliqueArray, 2))
+        break;
+      case 3:
+        console.log('obliques level 3')
+        console.log(mixExercises(obliqueArray, 3))
+        break;
+      case 4:
+        console.log('obliques level 4')
+        console.log(mixExercises(obliqueArray, 4))
+        break;
+    }
   }
 }
