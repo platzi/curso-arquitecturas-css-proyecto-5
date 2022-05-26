@@ -62,7 +62,7 @@
       </div>
     </section>
   </main>
-  <section v-else>
+  <section v-else class="final">
     <div v-for="exercise, index in (exercisesToDo)" :key="index">
       <p>{{ exercise.title }}</p>
     </div>
@@ -249,6 +249,23 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.final {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & div {
+    background-color: #000000e8;
+    width: 25%;
+    margin: 15px 0;
+
+    & p {
+      color: white;
+      text-transform: uppercase;
+    }
+  }
 }
 
 </style>
