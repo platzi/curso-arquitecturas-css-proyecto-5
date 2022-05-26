@@ -1,11 +1,13 @@
 <template>
-  <img
-    :src="image"
-    :alt="alt"
-    @click="selectOption"
-    :class=" isSelected ? 'redBorder' : '' "
-  >
-  <span>{{ text }}</span>
+  <div class="container">
+    <img
+      :src="image"
+      :alt="alt"
+      @click="selectOption"
+      :class=" isSelected ? 'redBorder' : '' "
+    >
+    <span>{{ text }}</span>
+  </div>
 </template>
 
 <script>
@@ -52,6 +54,20 @@ img {
 
   &:hover {
     cursor: pointer;
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 15px;
+
+  & span {
+    margin-top: 5px;
   }
 }
 

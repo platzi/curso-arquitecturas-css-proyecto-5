@@ -40,4 +40,23 @@ export default {
 img {
   max-width: 100px;
 }
+
+button {
+  border-radius: 20px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  /*animation when click on button*/
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+span {
+  display: block;
+  margin-top: 10px;
+  font-size: 1.5rem;
+}
 </style>

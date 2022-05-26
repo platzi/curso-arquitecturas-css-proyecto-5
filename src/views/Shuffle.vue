@@ -2,7 +2,7 @@
   <h1>shuffle ab workout</h1>
   <ButtonImage
     :image="require('../assets/shuffle.png')"
-    alt="logo" text="shuffle"
+    alt="logo" text="Shuffle"
     @goToNextPage="goToWorkout"
   />
 </template>

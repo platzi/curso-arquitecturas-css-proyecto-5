@@ -1,11 +1,11 @@
 <template>
-  <section>
-    <button @click="previousLevel"> - </button>
-    <img :src="dumbellImage" alt="dumbbell">
-    <small>{{ level }}</small>
-    <button @click="nextLevel"> + </button>
+  <section class="level">
+    <button @click="previousLevel" class="lower"> - </button>
+    <img :src="dumbellImage" alt="dumbbell" class="image">
+    <small class="info">{{ level }}</small>
+    <button @click="nextLevel" class="higher"> + </button>
   </section>
-  <section>
+  <section class="info">
     <h3>{{ title }}</h3>
     <p>{{ description }}</p>
   </section>
@@ -114,5 +114,59 @@ export default {
 <style lang="scss" scoped>
 img {
   max-width: 100px;
+}
+
+.level {
+  display: grid;
+  max-width: fit-content;
+  align-items: center;
+  grid-template-areas: "buttonLower image buttonHigher"
+                      ". info .";
+
+  & .higher {
+    grid-area: buttonHigher;
+  }
+  & .lower {
+    grid-area: buttonLower;
+  }
+  & .image {
+    grid-area: image;
+  }
+  & .info {
+    grid-area: info;
+  }
+
+  & .lower {
+    margin-right: 20px;
+  }
+
+  & .higher {
+    margin-left: 20px;
+  }
+}
+
+button {
+  height: fit-content;
+  margin: 20px 0;
+  font-size: 1.2rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 8px 20px;
+  width: fit-content;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:active {
+    color: #fff;
+    background-color: #00bcd4;
+    transform: scale(0.95);
+  }
+}
+
+.info {
+  margin-top: 20px;
+  font-size: 1.2rem;
 }
 </style>

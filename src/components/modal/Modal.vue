@@ -11,27 +11,32 @@
         <TrainingButton
           text="Specific area"
           @nextStep="specificArea"
+          class="trainingButton"
         />
         <TrainingButton
           text="My entire core"
           @nextStep="nextSlide"
+          class="trainingButton"
           @click="allSelected"
         />
         <TrainingButton
           text="Saved workouts"
           @nextStep="favorites"
+          class="trainingButton"
         />
       </div>
       <div v-else-if="secondSlide" class="secondSlide">
         <h2>Note: Bodyweight is always selected</h2>
-        <Option
-          v-for="(option, index) in options"
-          :key="index"
-          :image="option.image"
-          :alt="option.alt"
-          :text="option.text"
-          @select="emitIndexOption(index)"
-        />
+        <div class="options">
+          <Option
+            v-for="(option, index) in options"
+            :key="index"
+            :image="option.image"
+            :alt="option.alt"
+            :text="option.text"
+            @select="emitIndexOption(index)"
+          />
+        </div>
         <NextShuffle text="Next" @click="lastSlide" />
       </div>
       <div v-else-if="thirdSlide" class="thirdSlide">
@@ -207,4 +212,43 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.firstSlide,
+.thirdSlide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  margin: 20px 0;
+  font-size: 1.2rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 8px 20px;
+  width: 200px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:active {
+    color: #fff;
+    background-color: #00bcd4;
+    transform: scale(0.95);
+  }
+}
+
+.secondSlide .options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.fourthSlide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 </style>
