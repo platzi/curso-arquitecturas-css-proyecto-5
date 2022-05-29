@@ -90,13 +90,13 @@ export const mixExercises = () => {
 
     switch (store.getters.level) {
       case 1:
-        return mixAbExercises(upperArray, 1)
-      case 2:
         return mixAbExercises(upperArray, 2)
-      case 3:
-        return mixAbExercises(upperArray, 3)
-      case 4:
+      case 2:
         return mixAbExercises(upperArray, 4)
+      case 3:
+        return mixAbExercises(upperArray, 6)
+      case 4:
+        return mixAbExercises(upperArray, 8)
     }
   } else if(store.getters.isLowerSelected) {
     selectedExercises()
@@ -110,13 +110,13 @@ export const mixExercises = () => {
 
     switch (store.getters.level) {
       case 1:
-        return mixAbExercises(lowerArray, 1)
-      case 2:
         return mixAbExercises(lowerArray, 2)
-      case 3:
-        return mixAbExercises(lowerArray, 3)
-      case 4:
+      case 2:
         return mixAbExercises(lowerArray, 4)
+      case 3:
+        return mixAbExercises(lowerArray, 6)
+      case 4:
+        return mixAbExercises(lowerArray, 8)
     }
   } else if(store.getters.isObliquesSelected) {
     selectedExercises()
@@ -130,13 +130,13 @@ export const mixExercises = () => {
 
     switch (store.getters.level) {
       case 1:
-        return mixAbExercises(obliqueArray, 1)
-      case 2:
         return mixAbExercises(obliqueArray, 2)
-      case 3:
-        return mixAbExercises(obliqueArray, 3)
-      case 4:
+      case 2:
         return mixAbExercises(obliqueArray, 4)
+      case 3:
+        return mixAbExercises(obliqueArray, 6)
+      case 4:
+        return mixAbExercises(obliqueArray, 8)
     }
   }
 }
