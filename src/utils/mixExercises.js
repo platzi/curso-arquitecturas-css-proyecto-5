@@ -70,13 +70,13 @@ export const mixExercises = () => {
 
     switch (store.getters.level) {
       case 1:
-        return mixAbExercises(newArray, 1)
-      case 2:
         return mixAbExercises(newArray, 2)
-      case 3:
-        return mixAbExercises(newArray, 3)
-      case 4:
+      case 2:
         return mixAbExercises(newArray, 4)
+      case 3:
+        return mixAbExercises(newArray, 6)
+      case 4:
+        return mixAbExercises(newArray, 8)
     }
   } else if(store.getters.isUpperSelected) {
     selectedExercises()

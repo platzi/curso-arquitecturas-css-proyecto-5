@@ -8,11 +8,6 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/about',
-    name: 'about',
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  },
-  {
     path: '/shuffle',
     name: 'shuffle',
     component: () => import(/* webpackChunkName: "shuffle" */ '../views/Shuffle.vue')
@@ -22,11 +17,11 @@ const routes = [
     name: 'workout',
     component: () => import(/* webpackChunkName: "workout" */ '../views/Workout.vue')
   },
-  {
-    path: '/favorites',
-    name: 'favorites',
-    component: () => import(/* webpackChunkName: "favorites" */ '../views/Favorites.vue')
-  }
+  //{
+  //  path: '/favorites',
+  //  name: 'favorites',
+  //  component: () => import(/* webpackChunkName: "favorites" */ '../views/Favorites.vue')
+  //}
 ]
 
 const router = createRouter({

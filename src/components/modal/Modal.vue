@@ -130,8 +130,6 @@ export default {
 
     const shuffleAbWorkout = () => {
       exercisesToDo.value = mixExercises()
-      console.log(exercisesToDo)
-      console.log(exercisesToDo.length)
     }
 
     const setUpper = () => {
