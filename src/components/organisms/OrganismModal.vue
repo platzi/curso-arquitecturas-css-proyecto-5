@@ -8,18 +8,18 @@
     <hr>
     <section>
       <div v-if="firstSlide" class="firstSlide">
-        <TrainingButton
+        <AtomTrainingButton
           text="Specific area"
           @nextStep="specificArea"
           class="trainingButton"
         />
-        <TrainingButton
+        <AtomTrainingButton
           text="My entire core"
           @nextStep="nextSlide"
           class="trainingButton"
           @click="allSelected"
         />
-        <TrainingButton
+        <AtomTrainingButton
           text="Saved workouts"
           @nextStep="favorites"
           class="trainingButton"
@@ -28,7 +28,7 @@
       <div v-else-if="secondSlide" class="secondSlide">
         <h2>Note: Bodyweight is always selected</h2>
         <div class="options">
-          <Option
+          <MoleculeOption
             v-for="(option, index) in options"
             :key="index"
             :image="option.image"
@@ -37,7 +37,7 @@
             @select="emitIndexOption(index)"
           />
         </div>
-        <NextShuffle text="Next" @click="lastSlide" />
+        <AtomNextShuffle text="Next" @click="lastSlide" />
       </div>
       <div v-else-if="thirdSlide" class="thirdSlide">
         <button @click="setUpper">
@@ -53,12 +53,12 @@
         </button>
       </div>
       <div v-else-if="fourthSlide" class="fourthSlide">
-        <Level
+        <MoleculeLevel
           level="Level 1"
           title="Basix Level"
           description="I TRAIN A FEW TIMES PER MONTH"
         />
-        <NextShuffle text="Shuffle" @click="shuffleAbWorkout" />
+        <AtomNextShuffle text="Shuffle" @click="shuffleAbWorkout" />
       </div>
     </section>
   </main>
@@ -73,10 +73,10 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
-import TrainingButton from '@/components/buttons/TrainingButton'
-import Option from '@/components/options/Option'
-import NextShuffle from '@/components/buttons/NextShuffle'
-import Level from '@/components/levels/Level'
+import AtomTrainingButton from '@/components/atoms/AtomTrainingButton.vue'
+import MoleculeOption from '@/components/molecules/MoleculeOption.vue'
+import AtomNextShuffle from '@/components/atoms/AtomNextShuffle.vue'
+import MoleculeLevel from '@/components/molecules/MoleculeLevel.vue'
 
 import { options } from '@/utils/options';
 import store from '@/store';
@@ -85,11 +85,10 @@ import { mixExercises } from '@/utils/mixExercises'
 
 export default {
   components: {
-    TrainingButton,
-    Option,
-    NextShuffle,
-    Level,
-    NextShuffle
+    AtomTrainingButton,
+    MoleculeOption,
+    AtomNextShuffle,
+    MoleculeLevel
 },
 
   setup() {

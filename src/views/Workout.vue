@@ -1,13 +1,13 @@
 <template>
-  <Modal />
+  <OrganismModal />
 </template>
 
 <script>
-import Modal from '@/components/modal/Modal'
+import OrganismModal from '@/components/organisms/OrganismModal.vue'
 
 export default {
   components: {
-    Modal
+    OrganismModal
   },
 }
 </script>
