@@ -1,6 +1,6 @@
 <template>
   <h1>shuffle ab workout</h1>
-  <ButtonImage
+  <AtomImageButton
     :image="require('../assets/shuffle.png')"
     alt="logo" text="Shuffle"
     @goToNextPage="goToWorkout"
@@ -10,12 +10,12 @@
 <script>
 import { useRouter } from 'vue-router'
 
-import ButtonImage from '@/components/buttons/ButtonImage'
+import AtomImageButton from '@/components/atoms/AtomImageButton.vue'
 import store from '@/store'
 
 export default {
   components: {
-    ButtonImage
+    AtomImageButton
   },
 
   setup() {
